@@ -38,6 +38,18 @@ export class UserController {
       this.handleError(error, res);
     }
   };
+  getUserById = async (req: Request, res: Response) => {
+    try {
+      const { userId } = req.params; // Obtén el ID del usuario desde los parámetros de la URL
+
+      const user = await this.userRepository.findById(userId);
+
+      // Devuelve la información del usuario con un estado 200 OK
+      res.status(200).json(user);
+    } catch (error) {
+      this.handleError(error, res);
+    }
+  };
 
   updateUser = async (req: Request, res: Response) => {
     try {
@@ -74,16 +86,15 @@ export class UserController {
         return res.status(401).json({ error: "Invalid credentials" });
       }
 
-      console.log(user.roles);
-
       // Generar el token JWT
       const token = await JwtAdapter.generateToken({
         id: user.id,
-        roles: user.roles,
       });
+      console.log("User Object:", user);
 
       res.status(200).json({
-        user,
+        email: user.email,
+        password: user.password,
         token,
       });
     } catch (error) {

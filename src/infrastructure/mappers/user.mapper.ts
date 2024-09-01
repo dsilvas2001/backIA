@@ -69,6 +69,6 @@ export class UserMapper {
     }
 
     // Crear y devolver la entidad de usuario
-    return new UserEntity(_id.toString(), email, password);
+    return new UserEntity(_id.toString(), undefined, email, password);
   }
 }

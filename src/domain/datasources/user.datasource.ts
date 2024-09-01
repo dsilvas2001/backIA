@@ -12,4 +12,5 @@ export abstract class UserDatasource {
   ): Promise<UserEntity>;
 
   abstract update(userId: string, userUpdateDto: UserDto): Promise<UserEntity>;
+  abstract findById(userId: string): Promise<UserEntity>;
 }

@@ -117,6 +117,52 @@ export class UserDatasourceImpl implements UserDatasource {
       }
     }
   }
+
+  async findById(userId: string): Promise<UserEntity> {
+    try {
+      // Encuentra el documento en la colección userSubject por userId
+      const userSubject = await userSubjectModel
+        .findOne({ userId }) // Busca por userId
+        .populate({
+          path: "userId", // Referencia al modelo de usuario
+          select: "name email password roles", // Selecciona los campos necesarios
+          populate: { path: "roles", select: "rolName" }, // Poblamos el rol relacionado
+        })
+        .populate({
+          path: "courseId", // Referencia al modelo de curso
+          select: "courseName", // Selecciona el campo 'courseName'
+        });
+
+      if (!userSubject) {
+        throw CustomError.badRequest("User subject not found");
+      }
+
+      const user = userSubject.userId as any; // Cast a 'any' para acceder a las propiedades
+      const course = userSubject.courseId as any; // Cast a 'any' para acceder a las propiedades
+
+      // Asegúrate de que 'roles' es un objeto que tiene 'rolName'
+      const roleName = user.roles ? (user.roles as any).rolName : "";
+
+      // Construye la entidad de usuario con la información relacionada
+      return new UserEntity(
+        user._id.toString(),
+        user.name,
+        user.email,
+        user.password,
+        roleName,
+        course.courseName
+      );
+    } catch (error) {
+      if (error instanceof CustomError) {
+        throw error;
+      } else if (error instanceof mongoose.Error) {
+        throw CustomError.serverUnavailable(error.message);
+      } else {
+        throw CustomError.internalServer();
+      }
+    }
+  }
+
   /**
    *
    * @param email

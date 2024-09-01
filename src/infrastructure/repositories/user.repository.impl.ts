@@ -15,6 +15,9 @@ export class UserRepositoryImpl implements UserRepository {
   async findAll(): Promise<UserEntity[]> {
     return this.userDatasource.findAll();
   }
+  async findById(userId: string): Promise<UserEntity> {
+    return this.userDatasource.findById(userId);
+  }
 
   async findByCredentials(
     email: string,

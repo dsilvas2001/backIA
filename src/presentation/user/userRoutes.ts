@@ -15,7 +15,7 @@ export class UserRoutes {
 
     router.put("/update/:id", controller.updateUser);
 
-    router.get("/", controller.getAllUser);
+    router.get("/:userId", controller.getUserById);
 
     router.post("/auth", controller.findByCredentials);
 
