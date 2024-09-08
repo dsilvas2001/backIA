@@ -13,9 +13,9 @@ const data_1 = require("./data");
 const config_1 = require("./config");
 const presentation_1 = require("./presentation");
 const routes_1 = require("./presentation/routes");
-(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield main();
-}))();
+// (async () => {
+//   await main();
+// })();
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         yield data_1.MongoDatabase.connect({
@@ -28,3 +28,4 @@ function main() {
         }).start();
     });
 }
+main();

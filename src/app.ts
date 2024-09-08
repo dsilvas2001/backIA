@@ -4,9 +4,9 @@ import { envs } from "./config";
 import { Server } from "./presentation";
 import { AppRoutes } from "./presentation/routes";
 
-(async () => {
-  await main();
-})();
+// (async () => {
+//   await main();
+// })();
 
 async function main() {
   await MongoDatabase.connect({
@@ -19,3 +19,5 @@ async function main() {
     routes: AppRoutes.routes,
   }).start();
 }
+
+main();
