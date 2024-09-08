@@ -37,3 +37,4 @@ const questionsSchema = new mongoose_1.Schema({
     },
 });
 exports.QuestionModel = mongoose_1.default.model("questions", questionsSchema);
+//# sourceMappingURL=questions.model.js.map

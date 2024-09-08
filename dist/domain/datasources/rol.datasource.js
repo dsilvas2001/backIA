@@ -4,3 +4,4 @@ exports.RolDatasource = void 0;
 class RolDatasource {
 }
 exports.RolDatasource = RolDatasource;
+//# sourceMappingURL=rol.datasource.js.map

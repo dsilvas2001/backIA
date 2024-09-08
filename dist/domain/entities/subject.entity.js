@@ -11,3 +11,4 @@ class SubjectEntity {
     }
 }
 exports.SubjectEntity = SubjectEntity;
+//# sourceMappingURL=subject.entity.js.map

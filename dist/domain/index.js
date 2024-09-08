@@ -51,3 +51,4 @@ __exportStar(require("./repositories/subject.repository"), exports);
 __exportStar(require("./repositories/rol.repository"), exports);
 __exportStar(require("./repositories/openai.repository"), exports);
 //
+//# sourceMappingURL=index.js.map

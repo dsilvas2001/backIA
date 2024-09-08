@@ -33,3 +33,4 @@ const cursoSchema = new mongoose_1.Schema({
     },
 });
 exports.CourseModel = mongoose_1.default.model("course", cursoSchema);
+//# sourceMappingURL=curso.model.js.map

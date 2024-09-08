@@ -17,3 +17,4 @@ class StudentEnrollmentDto {
     }
 }
 exports.StudentEnrollmentDto = StudentEnrollmentDto;
+//# sourceMappingURL=matricula.dto.js.map

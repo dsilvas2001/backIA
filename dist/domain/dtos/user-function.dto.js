@@ -17,3 +17,4 @@ class UserFunctionDto {
     }
 }
 exports.UserFunctionDto = UserFunctionDto;
+//# sourceMappingURL=user-function.dto.js.map

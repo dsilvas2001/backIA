@@ -62,3 +62,4 @@ class StudentEnrollmentDatasourceImpl {
     }
 }
 exports.StudentEnrollmentDatasourceImpl = StudentEnrollmentDatasourceImpl;
+//# sourceMappingURL=matricula.datasource.impl.js.map

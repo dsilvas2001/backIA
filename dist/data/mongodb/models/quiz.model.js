@@ -50,3 +50,4 @@ const quizSchema = new mongoose_1.Schema({
     },
 });
 exports.QuizModel = mongoose_1.default.model("quiz", quizSchema);
+//# sourceMappingURL=quiz.model.js.map

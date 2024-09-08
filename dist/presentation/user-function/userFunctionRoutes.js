@@ -16,3 +16,4 @@ class UserFunctionRoutes {
     }
 }
 exports.UserFunctionRoutes = UserFunctionRoutes;
+//# sourceMappingURL=userFunctionRoutes.js.map

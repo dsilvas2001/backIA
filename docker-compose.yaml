@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "9000:9000" # Mapea el puerto 3001 del contenedor al puerto 3005 de la máquina local
+      - "${PORT}:${PORT}" # Mapea el puerto 3001 del contenedor al puerto 3005 de la máquina local
     environment:
       PORT: ${PORT}
       MONGO_USER: ${MONGO_USER}

@@ -38,3 +38,4 @@ const studentEnrollmentSchema = new mongoose_1.Schema({
     },
 });
 exports.studentEnrollmentModel = mongoose_1.default.model("studentEnrollment", studentEnrollmentSchema);
+//# sourceMappingURL=matricula.model.js.map

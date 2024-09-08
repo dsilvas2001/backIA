@@ -8,3 +8,4 @@ class FunctionEntity {
     }
 }
 exports.FunctionEntity = FunctionEntity;
+//# sourceMappingURL=function.entity.js.map

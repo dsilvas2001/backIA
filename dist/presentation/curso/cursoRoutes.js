@@ -19,3 +19,4 @@ class CourseRoutes {
     }
 }
 exports.CourseRoutes = CourseRoutes;
+//# sourceMappingURL=cursoRoutes.js.map

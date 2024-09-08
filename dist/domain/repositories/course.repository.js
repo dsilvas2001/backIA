@@ -4,3 +4,4 @@ exports.CourseRepository = void 0;
 class CourseRepository {
 }
 exports.CourseRepository = CourseRepository;
+//# sourceMappingURL=course.repository.js.map

@@ -65,3 +65,4 @@ class RolDatasourceImpl {
     }
 }
 exports.RolDatasourceImpl = RolDatasourceImpl;
+//# sourceMappingURL=rol.datasource.impl.js.map

@@ -7,3 +7,4 @@ class UserFunctionEntity {
     ) { }
 }
 exports.UserFunctionEntity = UserFunctionEntity;
+//# sourceMappingURL=user-function.entity.js.map

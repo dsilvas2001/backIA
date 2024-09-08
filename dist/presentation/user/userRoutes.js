@@ -20,3 +20,4 @@ class UserRoutes {
     }
 }
 exports.UserRoutes = UserRoutes;
+//# sourceMappingURL=userRoutes.js.map

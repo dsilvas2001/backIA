@@ -32,3 +32,4 @@ const rolSchema = new mongoose_1.Schema({
     },
 });
 exports.RolModel = mongoose_1.default.model("rol", rolSchema);
+//# sourceMappingURL=rol.model.js.map

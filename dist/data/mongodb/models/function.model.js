@@ -32,3 +32,4 @@ const functionSchema = new mongoose_1.Schema({
     },
 });
 exports.FunctionModel = mongoose_1.default.model("function", functionSchema);
+//# sourceMappingURL=function.model.js.map

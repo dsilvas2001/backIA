@@ -15,3 +15,4 @@ class OpenAIRoutes {
     }
 }
 exports.OpenAIRoutes = OpenAIRoutes;
+//# sourceMappingURL=openaiRoutes.js.map

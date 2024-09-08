@@ -14,3 +14,4 @@ class RolDto {
     }
 }
 exports.RolDto = RolDto;
+//# sourceMappingURL=rol.dto.js.map

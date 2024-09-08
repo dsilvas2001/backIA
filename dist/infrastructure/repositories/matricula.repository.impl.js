@@ -24,3 +24,4 @@ class StudentEnrollmentRepositoryImpl {
     }
 }
 exports.StudentEnrollmentRepositoryImpl = StudentEnrollmentRepositoryImpl;
+//# sourceMappingURL=matricula.repository.impl.js.map

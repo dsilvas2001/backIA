@@ -9,3 +9,4 @@ class SubjectMapper {
     }
 }
 exports.SubjectMapper = SubjectMapper;
+//# sourceMappingURL=subject.mapper.js.map

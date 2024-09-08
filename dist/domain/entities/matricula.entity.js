@@ -9,3 +9,4 @@ class StudentEnrollmentEntity {
     }
 }
 exports.StudentEnrollmentEntity = StudentEnrollmentEntity;
+//# sourceMappingURL=matricula.entity.js.map

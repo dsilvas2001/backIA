@@ -20,3 +20,4 @@ class OpenAIMapper {
     }
 }
 exports.OpenAIMapper = OpenAIMapper;
+//# sourceMappingURL=openai.mapper.js.map

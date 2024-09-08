@@ -17,3 +17,4 @@ class UserSubjectDto {
     }
 }
 exports.UserSubjectDto = UserSubjectDto;
+//# sourceMappingURL=user-subject.dto.js.map

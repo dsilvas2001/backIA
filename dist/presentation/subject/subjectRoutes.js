@@ -16,3 +16,4 @@ class SubjectRoutes {
     }
 }
 exports.SubjectRoutes = SubjectRoutes;
+//# sourceMappingURL=subjectRoutes.js.map

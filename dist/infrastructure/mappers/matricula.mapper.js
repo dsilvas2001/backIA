@@ -17,3 +17,4 @@ class StudentEnrollmentMapper {
     }
 }
 exports.StudentEnrollmentMapper = StudentEnrollmentMapper;
+//# sourceMappingURL=matricula.mapper.js.map

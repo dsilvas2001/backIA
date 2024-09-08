@@ -62,3 +62,4 @@ class UserSubjectImpl {
     }
 }
 exports.UserSubjectImpl = UserSubjectImpl;
+//# sourceMappingURL=user-subject.datasource.impl.js.map

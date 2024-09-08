@@ -13,3 +13,4 @@ class OpenAIEntity {
     }
 }
 exports.OpenAIEntity = OpenAIEntity;
+//# sourceMappingURL=openai.entity.js.map

@@ -38,3 +38,4 @@ class OpenAIController {
     }
 }
 exports.OpenAIController = OpenAIController;
+//# sourceMappingURL=openaiController.js.map

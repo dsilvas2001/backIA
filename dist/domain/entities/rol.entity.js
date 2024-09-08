@@ -8,3 +8,4 @@ class RolEntity {
     }
 }
 exports.RolEntity = RolEntity;
+//# sourceMappingURL=rol.entity.js.map

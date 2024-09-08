@@ -15,3 +15,4 @@ class RolMapper {
     }
 }
 exports.RolMapper = RolMapper;
+//# sourceMappingURL=rol.mapper.js.map

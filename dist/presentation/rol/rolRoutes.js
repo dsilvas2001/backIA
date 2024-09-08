@@ -16,3 +16,4 @@ class RolRoutes {
     }
 }
 exports.RolRoutes = RolRoutes;
+//# sourceMappingURL=rolRoutes.js.map

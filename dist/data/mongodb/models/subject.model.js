@@ -37,3 +37,4 @@ const subjectSchema = new mongoose_1.Schema({
     },
 });
 exports.SubjectModel = mongoose_1.default.model("subject", subjectSchema);
+//# sourceMappingURL=subject.model.js.map

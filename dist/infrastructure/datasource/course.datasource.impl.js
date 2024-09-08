@@ -65,3 +65,4 @@ class CourseDatasourceImpl {
     }
 }
 exports.CourseDatasourceImpl = CourseDatasourceImpl;
+//# sourceMappingURL=course.datasource.impl.js.map

@@ -4,3 +4,4 @@ exports.RolRepository = void 0;
 class RolRepository {
 }
 exports.RolRepository = RolRepository;
+//# sourceMappingURL=rol.repository.js.map

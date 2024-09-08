@@ -63,3 +63,4 @@ class SubjectDatasourceImpl {
     }
 }
 exports.SubjectDatasourceImpl = SubjectDatasourceImpl;
+//# sourceMappingURL=subject.datasource.impl.js.map

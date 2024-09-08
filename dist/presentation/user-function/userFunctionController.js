@@ -47,3 +47,4 @@ class UserFunctionController {
     }
 }
 exports.UserFunctionController = UserFunctionController;
+//# sourceMappingURL=userFunctionController.js.map

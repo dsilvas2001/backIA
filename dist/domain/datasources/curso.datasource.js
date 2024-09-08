@@ -4,3 +4,4 @@ exports.CourseDatasource = void 0;
 class CourseDatasource {
 }
 exports.CourseDatasource = CourseDatasource;
+//# sourceMappingURL=curso.datasource.js.map

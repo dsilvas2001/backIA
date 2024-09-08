@@ -47,3 +47,4 @@ class SubjectController {
     }
 }
 exports.SubjectController = SubjectController;
+//# sourceMappingURL=subjectController.js.map

@@ -4,3 +4,4 @@ exports.SubjectRepository = void 0;
 class SubjectRepository {
 }
 exports.SubjectRepository = SubjectRepository;
+//# sourceMappingURL=subject.repository.js.map

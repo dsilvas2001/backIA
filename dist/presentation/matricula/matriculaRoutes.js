@@ -16,3 +16,4 @@ class StudentEnrollmentRoutes {
     }
 }
 exports.StudentEnrollmentRoutes = StudentEnrollmentRoutes;
+//# sourceMappingURL=matriculaRoutes.js.map

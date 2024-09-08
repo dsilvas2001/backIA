@@ -14,3 +14,4 @@ class CourseDto {
     }
 }
 exports.CourseDto = CourseDto;
+//# sourceMappingURL=curso.dto.js.map

@@ -8,3 +8,4 @@ class CourseEntity {
     }
 }
 exports.CourseEntity = CourseEntity;
+//# sourceMappingURL=course.entity.js.map

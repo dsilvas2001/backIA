@@ -38,3 +38,4 @@ const userSubjectSchema = new mongoose_1.Schema({
     },
 });
 exports.userSubjectModel = mongoose_1.default.model("usercourse", userSubjectSchema);
+//# sourceMappingURL=user-subject.model.js.map

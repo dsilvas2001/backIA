@@ -24,3 +24,4 @@ class RolRepositoryImpl {
     }
 }
 exports.RolRepositoryImpl = RolRepositoryImpl;
+//# sourceMappingURL=rol.repository.impl.js.map

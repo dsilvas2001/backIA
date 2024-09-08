@@ -14,3 +14,4 @@ class UserEntity {
 }
 exports.UserEntity = UserEntity;
 //
+//# sourceMappingURL=user.entity.js.map

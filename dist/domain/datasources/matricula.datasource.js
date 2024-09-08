@@ -4,3 +4,4 @@ exports.studentEnrollmentDatasource = void 0;
 class studentEnrollmentDatasource {
 }
 exports.studentEnrollmentDatasource = studentEnrollmentDatasource;
+//# sourceMappingURL=matricula.datasource.js.map

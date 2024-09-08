@@ -15,3 +15,4 @@ class CourseMapper {
     }
 }
 exports.CourseMapper = CourseMapper;
+//# sourceMappingURL=curso.mapper.js.map

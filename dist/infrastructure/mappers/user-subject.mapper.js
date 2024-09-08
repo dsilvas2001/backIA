@@ -17,3 +17,4 @@ class UserSubjectMapper {
     }
 }
 exports.UserSubjectMapper = UserSubjectMapper;
+//# sourceMappingURL=user-subject.mapper.js.map

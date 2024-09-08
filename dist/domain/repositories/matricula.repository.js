@@ -4,3 +4,4 @@ exports.StudentEnrollmentRepository = void 0;
 class StudentEnrollmentRepository {
 }
 exports.StudentEnrollmentRepository = StudentEnrollmentRepository;
+//# sourceMappingURL=matricula.repository.js.map

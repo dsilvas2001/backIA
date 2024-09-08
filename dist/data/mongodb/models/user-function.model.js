@@ -38,3 +38,4 @@ const userFunctionSchema = new mongoose_1.Schema({
     },
 });
 exports.UserFunctionModel = mongoose_1.default.model("userFunction", userFunctionSchema);
+//# sourceMappingURL=user-function.model.js.map

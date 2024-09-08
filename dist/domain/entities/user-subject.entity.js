@@ -9,3 +9,4 @@ class UserSubjectEntity {
     }
 }
 exports.UserSubjectEntity = UserSubjectEntity;
+//# sourceMappingURL=user-subject.entity.js.map
