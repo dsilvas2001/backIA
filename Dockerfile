@@ -1,23 +1,23 @@
-# Usa una imagen base oficial de Node.js
-FROM node:lts-alpine
+# Usa una imagen base de Node.js
+FROM node:18
 
-# Configura el directorio de trabajo dentro del contenedor
+# Crea un directorio de trabajo
 WORKDIR /usr/src/app
 
-# Copia el archivo package.json y package-lock.json (o yarn.lock)
+# Copia los archivos package.json y package-lock.json
 COPY package*.json ./
 
-# Instala las dependencias del proyecto
+# Instala las dependencias
 RUN npm install
 
-# Copia el resto del código fuente al contenedor
+# Copia el código fuente
 COPY . .
 
-# Compila el código TypeScript a JavaScript
+# Compila el código TypeScript
 RUN npm run build
 
-# Expone el puerto en el que la aplicación estará escuchando
-EXPOSE 3001
+# Expone el puerto en el que la aplicación escuchará
+EXPOSE 3000
 
-# Define el comando para iniciar la aplicación
-CMD [ "node", "dist/app.js" ]
+# Ejecuta la aplicación
+CMD ["node", "dist/app.js"]

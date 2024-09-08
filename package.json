@@ -4,7 +4,7 @@
   "description": "",
 "main": "dist/app.js",
   "scripts": {
-    "dev": "nodemon",
+    "dev": "nodemon --watch src --exec ts-node src/app.ts",
     "build": "rimraf ./dist && tsc",
     "start": "npm run build && node dist/app.js"
   },

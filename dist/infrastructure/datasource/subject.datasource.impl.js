@@ -1,0 +1,65 @@
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SubjectDatasourceImpl = void 0;
+const mongoose_1 = __importDefault(require("mongoose"));
+const subject_model_1 = require("../../data/mongodb/models/subject.model");
+const custom_error_1 = require("../errors/custom.error");
+const subject_mapper_1 = require("../mappers/subject.mapper");
+class SubjectDatasourceImpl {
+    register(subjectDto) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { subjectName, courseId } = subjectDto;
+            //
+            try {
+                const subject = yield subject_model_1.SubjectModel.create({
+                    subjectName: subjectName,
+                    courseId: courseId,
+                });
+                yield subject.save();
+                // guardar
+                return subject_mapper_1.SubjectMapper.userEntityFromObject(subject);
+            }
+            catch (error) {
+                if (error instanceof custom_error_1.CustomError) {
+                    throw error;
+                }
+            }
+            throw custom_error_1.CustomError.internalServer();
+        });
+    }
+    findAll() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const subjects = yield subject_model_1.SubjectModel.find().populate("courseId", "courseName");
+                if (!subjects.length) {
+                    throw custom_error_1.CustomError.badRequest("No subject found");
+                }
+                return subjects.map((userFunction) => subject_mapper_1.SubjectMapper.userEntityFromObject(userFunction));
+            }
+            catch (error) {
+                if (error instanceof custom_error_1.CustomError) {
+                    throw error;
+                }
+                else if (error instanceof mongoose_1.default.Error) {
+                    throw custom_error_1.CustomError.serverUnavailable(error.message);
+                }
+                else {
+                    throw custom_error_1.CustomError.internalServer();
+                }
+            }
+        });
+    }
+}
+exports.SubjectDatasourceImpl = SubjectDatasourceImpl;
