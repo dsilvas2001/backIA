@@ -20,7 +20,7 @@ COPY . .
 RUN npm run build
 
 # Exponer el puerto en el que la app estará escuchando
-EXPOSE 3001
+EXPOSE 80
 
 # Ejecuta el archivo de entrada
-CMD ["npm","start"]
+CMD ["node", "dist/app.js"]
