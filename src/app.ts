@@ -9,15 +9,21 @@ import { AppRoutes } from "./presentation/routes";
 // })();
 
 async function main() {
-  await MongoDatabase.connect({
-    dbName: envs.MONGO_DB_NAME,
-    mongoURL: envs.MONGO_URL,
-  });
+  try {
+    await MongoDatabase.connect({
+      dbName: envs.MONGO_DB_NAME,
+      mongoURL: envs.MONGO_URL,
+    });
 
-  new Server({
-    port: envs.PORT,
-    routes: AppRoutes.routes,
-  }).start();
+    const server = new Server({
+      port: envs.PORT,
+      routes: AppRoutes.routes,
+    });
+
+    server.start();
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 main();
