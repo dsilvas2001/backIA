@@ -1,5 +1,8 @@
 # Usa una imagen base de Node.js
-FROM node:lts-alpine
+FROM node:16.17.0
+
+RUN mkdir -p /usr/src/app
+
 
 # Crea un directorio de trabajo
 WORKDIR /usr/src/app
@@ -20,4 +23,4 @@ RUN npm run build
 EXPOSE 3001
 
 # Ejecuta el archivo de entrada
-CMD ["node", "dist/app.js"]
+CMD ["npm","start"]
