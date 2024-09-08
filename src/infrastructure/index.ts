@@ -8,7 +8,7 @@ export * from "./datasource/subject.datasource.impl";
 export * from "./datasource/user-function.datasource.impl";
 export * from "./datasource/user-subject.datasource.impl";
 export * from "./datasource/rol.datasource.impl";
-export * from "./datasource/openAI.datasource.impl";
+export * from "./datasource/openai.datasource.impl";
 
 export * from "./errors/custom.error";
 
@@ -31,3 +31,5 @@ export * from "./repositories/user-function.repository.impl";
 export * from "./repositories/user-subject.repository.impl";
 export * from "./repositories/rol.repository.impl";
 export * from "./repositories/openai.repository.impl";
+
+//ww

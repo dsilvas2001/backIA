@@ -21,7 +21,9 @@ export class AppRoutes {
     router.use("/matricula", StudentEnrollmentRoutes.routes); //materia-user
     router.use("/user", UserRoutes.routes);
 
-    //
+    /**
+     *
+     */
     router.use("/openAI", OpenAIRoutes.routes);
 
     return router;

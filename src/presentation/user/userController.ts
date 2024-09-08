@@ -13,7 +13,12 @@ export class UserController {
     console.log(error);
     return res.status(500).json({ error: "Internal Server Error" });
   };
-
+  /**
+   *
+   * @param req
+   * @param res
+   * @returns
+   */
   registerUser = async (req: Request, res: Response) => {
     try {
       const [error, userDto] = UserDto.create(req.body);

@@ -7,7 +7,7 @@ import { SubjectMapper } from "../mappers/subject.mapper";
 export class SubjectDatasourceImpl implements SubjectDatasource {
   async register(subjectDto: SubjectDto): Promise<SubjectEntity> {
     const { subjectName, courseId } = subjectDto;
-
+    //
     try {
       const subject = await SubjectModel.create({
         subjectName: subjectName,

@@ -11,6 +11,6 @@ const userSubjectSchema = new Schema({
     ref: "course",
     required: [true, "course is required"],
   },
-}); //
+});
 
 export const userSubjectModel = mongoose.model("usercourse", userSubjectSchema);

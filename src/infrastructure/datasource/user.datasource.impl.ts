@@ -56,7 +56,7 @@ export class UserDatasourceImpl implements UserDatasource {
         ...user.toObject(), // Convertir el documento de Mongoose a un objeto plano
         courseName: course.courseName, // Agregar el `courseName` al objeto
       };
-
+      //
       // Devolver la entidad de usuario creada
       return UserMapper.userEntityFromObject(userWithCourse);
     } catch (error) {

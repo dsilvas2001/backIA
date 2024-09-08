@@ -13,3 +13,4 @@ export const envs = {
   JWT_SEED: env.get("JWT_SEED").required().asString(),
   OPENAI_API_KEY: env.get("OPENAI_API_KEY").required().asString(),
 };
+//

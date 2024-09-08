@@ -21,7 +21,6 @@ export class UserRoutes {
 
     router.post("/auth", controller.findByCredentials);
 
-    //
     return router;
   }
 }

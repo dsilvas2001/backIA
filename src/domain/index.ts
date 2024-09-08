@@ -37,3 +37,5 @@ export * from "./repositories/user-subject.repository";
 export * from "./repositories/subject.repository";
 export * from "./repositories/rol.repository";
 export * from "./repositories/openai.repository";
+
+//

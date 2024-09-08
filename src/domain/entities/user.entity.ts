@@ -9,3 +9,4 @@ export class UserEntity {
     public status?: string
   ) {}
 }
+//
