@@ -3,27 +3,31 @@ import { MongoDatabase } from "./data";
 import { envs } from "./config";
 import { Server } from "./presentation";
 import { AppRoutes } from "./presentation/routes";
+import express from "express";
 
 // (async () => {
 //   await main();
 // })();
 
-async function main() {
-  try {
-    await MongoDatabase.connect({
-      dbName: envs.MONGO_DB_NAME,
-      mongoURL: envs.MONGO_URL,
-    });
+// function main() {
+//   try {
+//     MongoDatabase.connect({
+//       dbName: envs.MONGO_DB_NAME,
+//       mongoURL: envs.MONGO_URL,
+//     });
 
-    const server = new Server({
-      port: envs.PORT,
-      routes: AppRoutes.routes,
-    });
+//     const server = new Server({
+//       port: envs.PORT,
+//       routes: AppRoutes.routes,
+//     });
 
-    server.start();
-  } catch (err) {
-    console.log(err);
-  }
-}
+//     server.start();
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
 
-main();
+const app = express();
+app.listen(envs.PORT, () => {
+  console.log(`Listen port: ${envs.PORT}`);
+});

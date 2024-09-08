@@ -28,7 +28,7 @@ class Server {
             this.app.use(express_1.default.json());
             this.app.use(this.routes);
             this.app.listen(process.env.port, () => {
-                console.log(`Server  running on port ${this.port}`);
+                console.log(`Server running on port: ${this.port}`);
             });
         });
     }

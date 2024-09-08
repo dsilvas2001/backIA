@@ -3,7 +3,6 @@ FROM node:16.17.0
 
 RUN mkdir -p /usr/src/app
 
-
 # Crea un directorio de trabajo
 WORKDIR /usr/src/app
 
@@ -20,7 +19,7 @@ COPY . .
 RUN npm run build
 
 # Exponer el puerto en el que la app estará escuchando
-EXPOSE 80
+EXPOSE 9000
 
 # Ejecuta el archivo de entrada
 CMD ["node", "dist/app.js"]
