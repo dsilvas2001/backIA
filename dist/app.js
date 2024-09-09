@@ -25,6 +25,6 @@ app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use(routes_1.AppRoutes.routes);
 app.listen(config_1.envs.PORT, () => {
-    console.log(`Listen port: ${config_1.envs.PORT}`);
+    console.log(`Listen posrt: ${config_1.envs.PORT}`);
 });
 //# sourceMappingURL=app.js.map

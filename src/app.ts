@@ -29,5 +29,5 @@ app.use(express.json());
 app.use(AppRoutes.routes);
 
 app.listen(envs.PORT, () => {
-  console.log(`Listen port: ${envs.PORT}`);
+  console.log(`Listen posrt: ${envs.PORT}`);
 });

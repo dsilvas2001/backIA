@@ -4,9 +4,9 @@
 
 export class OpenAIEntity {
   constructor(
-    public subject: string,
-    public topic: string,
-    public numQuestions: number,
-    public questions: { question: string; options: string[] }[]
+    public subject?: string,
+    public topic?: string,
+    public numQuestions?: number,
+    public questions?: { question: string; options: string[] }[]
   ) {}
 }

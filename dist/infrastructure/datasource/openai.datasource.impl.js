@@ -17,6 +17,8 @@ const config_1 = require("../../config");
 const openai_mapper_1 = require("../mappers/openai.mapper");
 const custom_error_1 = require("../errors/custom.error");
 const openai_1 = __importDefault(require("openai"));
+const zod_1 = require("zod");
+const zod_2 = require("openai/helpers/zod");
 class OpenAIDatasourceImpl {
     constructor() {
         this.openai = new openai_1.default({
@@ -25,60 +27,40 @@ class OpenAIDatasourceImpl {
     }
     generateText(openAIDto) {
         return __awaiter(this, void 0, void 0, function* () {
-            var _a;
             const { numOptions, numQuestions, subject, topic } = openAIDto;
             try {
-                const completion = yield this.openai.chat.completions.create({
+                const OptionsEvent = zod_1.z.object({
+                    question: zod_1.z.string(),
+                    options: zod_1.z.array(zod_1.z.string()),
+                    correct_answer: zod_1.z.string(),
+                });
+                const QuizEvent = zod_1.z.object({
+                    subject: zod_1.z.string(),
+                    topic: zod_1.z.string(),
+                    numQuestions: zod_1.z.string(),
+                    questions: zod_1.z.array(OptionsEvent),
+                });
+                const completion = yield this.openai.beta.chat.completions.parse({
                     model: "gpt-4o-mini", // Verifica que el modelo sea válido
                     messages: [
                         {
                             role: "system",
-                            content: "You are a helpful assistant designed to generate quizzes in a specific JSON format. Please only display the JSON output without any additional explanations or comments.",
+                            content: "You are a helpful assistant designed to generate quizzes for college students",
                         },
                         {
                             role: "user",
-                            content: `Please generate a JSON structure for a quiz with the following details:
+                            content: `Please generate  a quiz with the following details con su respuesta:
             - Subject: ${subject}
             - Topic: ${topic}
             - Number of questions: ${numQuestions}
-            - Number of options per question: ${numOptions}
-  
-            The JSON format should be:
-            {
-              "subject": "subject_name",
-              "topic": "topic_name",
-              "numQuestions": numQuestions,
-              "questions": [
-                {
-                  "question": "question_text",
-                  "options": ["option1", "option2", "option3", "option4"],
-                  "correct_answer": "correct_option"
-
-                },
-                ...
-              ]
-            }
-  
-            Ensure that each question has the specified number of options and is formatted correctly in the JSON response.`,
+            - Number of options per question: ${numOptions}`,
                         },
                     ],
+                    response_format: (0, zod_2.zodResponseFormat)(QuizEvent, "responseContent"),
                 });
-                const responseContent = (_a = completion.choices[0].message) === null || _a === void 0 ? void 0 : _a.content;
-                console.log("Raw Response Content:", responseContent);
-                // Manejo de respuesta en texto plano
-                if (!responseContent || typeof responseContent !== "string") {
-                    throw new Error("Invalid response from OpenAI API: Content is missing or not a string.");
-                }
-                // Intenta analizar el contenido JSON
-                let parsedContent;
-                try {
-                    parsedContent = JSON.parse(responseContent);
-                }
-                catch (jsonError) {
-                    throw new Error("Failhed to parse JSON response: " + jsonError);
-                }
-                console.log("Parsed Content:", parsedContent);
-                return openai_mapper_1.OpenAIMapper.openAIEntityFromObject(parsedContent);
+                this.responseContent = completion.choices[0].message.parsed;
+                console.log("Raw Response Content:", this.responseContent);
+                return openai_mapper_1.OpenAIMapper.openAIEntityFromObject(this.responseContent);
             }
             catch (error) {
                 console.error("Error details:", error);

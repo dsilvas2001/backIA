@@ -5,9 +5,12 @@ import { OpenAIMapper } from "../mappers/openai.mapper";
 import { CustomError } from "../errors/custom.error";
 import { OpenAIDto, OpenAIEntity } from "../../domain";
 import OpenAI from "openai";
+import { z } from "zod";
+import { zodResponseFormat } from "openai/helpers/zod";
 
 export class OpenAIDatasourceImpl implements OpenAIDatasource {
   private openai: OpenAI;
+  private responseContent: any;
 
   constructor() {
     this.openai = new OpenAI({
@@ -19,65 +22,43 @@ export class OpenAIDatasourceImpl implements OpenAIDatasource {
     const { numOptions, numQuestions, subject, topic } = openAIDto;
 
     try {
-      const completion = await this.openai.chat.completions.create({
+      const OptionsEvent = z.object({
+        question: z.string(),
+        options: z.array(z.string()),
+        correct_answer: z.string(),
+      });
+      const QuizEvent = z.object({
+        subject: z.string(),
+        topic: z.string(),
+        numQuestions: z.string(),
+        questions: z.array(OptionsEvent),
+      });
+
+      const completion = await this.openai.beta.chat.completions.parse({
         model: "gpt-4o-mini", // Verifica que el modelo sea válido
         messages: [
           {
             role: "system",
             content:
-              "You are a helpful assistant designed to generate quizzes in a specific JSON format. Please only display the JSON output without any additional explanations or comments.",
+              "You are a helpful assistant designed to generate quizzes for college students",
           },
           {
             role: "user",
-            content: `Please generate a JSON structure for a quiz with the following details:
+            content: `Please generate  a quiz with the following details con su respuesta:
             - Subject: ${subject}
             - Topic: ${topic}
             - Number of questions: ${numQuestions}
-            - Number of options per question: ${numOptions}
-  
-            The JSON format should be:
-            {
-              "subject": "subject_name",
-              "topic": "topic_name",
-              "numQuestions": numQuestions,
-              "questions": [
-                {
-                  "question": "question_text",
-                  "options": ["option1", "option2", "option3", "option4"],
-                  "correct_answer": "correct_option"
-
-                },
-                ...
-              ]
-            }
-  
-            Ensure that each question has the specified number of options and is formatted correctly in the JSON response.`,
+            - Number of options per question: ${numOptions}`,
           },
         ],
+        response_format: zodResponseFormat(QuizEvent, "responseContent"),
       });
 
-      const responseContent = completion.choices[0].message?.content;
+      this.responseContent = completion.choices[0].message.parsed;
 
-      console.log("Raw Response Content:", responseContent);
+      console.log("Raw Response Content:", this.responseContent);
 
-      // Manejo de respuesta en texto plano
-      if (!responseContent || typeof responseContent !== "string") {
-        throw new Error(
-          "Invalid response from OpenAI API: Content is missing or not a string."
-        );
-      }
-
-      // Intenta analizar el contenido JSON
-      let parsedContent;
-      try {
-        parsedContent = JSON.parse(responseContent);
-      } catch (jsonError) {
-        throw new Error("Failhed to parse JSON response: " + jsonError);
-      }
-
-      console.log("Parsed Content:", parsedContent);
-
-      return OpenAIMapper.openAIEntityFromObject(parsedContent);
+      return OpenAIMapper.openAIEntityFromObject(this.responseContent);
     } catch (error) {
       console.error("Error details:", error);
       if (error instanceof CustomError) {
